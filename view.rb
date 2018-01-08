@@ -4,7 +4,7 @@ class View
   def display(cookbook)
     unless cookbook.empty?
       cookbook.each_with_index do |recipe, index|
-        puts "#{index + 1} - #{recipe.name}, #{recipe.description}"
+        puts "#{index + 1} - #{recipe.name} | #{recipe.description} | #{recipe.cooking_time} min"
       end
     else
       puts "Your cookbook is empty !"
@@ -23,7 +23,7 @@ class View
   end
 
   def ask_user_for_time
-    puts "\nHow much time does it take to cook it ?"
-    return gets.chomp
+    puts "\nHow much time does it take to cook it (min) ?"
+    return gets.chomp.to_i
   end
 end
