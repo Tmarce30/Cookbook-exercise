@@ -26,6 +26,10 @@ class Cookbook
     save_to_csv
   end
 
+  def empty?
+    @recipes.empty?
+  end
+
   private
 
   def save_to_csv
