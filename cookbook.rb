@@ -1,6 +1,8 @@
 require_relative 'recipe'
 require 'csv'
 
+require 'pry-byebug'
+
 class Cookbook
   def initialize(csv_file_path)
     @recipes = []
@@ -35,7 +37,7 @@ class Cookbook
   def save_to_csv
     CSV.open(@csv_file, 'wb') do |csv|
       @recipes.each do |recipe|
-        csv << [recipe]
+        csv << [recipe.name, recipe.description, recipe.cooking_time]
       end
     end
   end

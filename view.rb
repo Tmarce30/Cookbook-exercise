@@ -1,8 +1,7 @@
-# require 'pry-byebug'
+require_relative 'cookbook'
 
 class View
   def display(cookbook)
-    # binding.pry
     unless cookbook.empty?
       cookbook.each_with_index do |recipe, index|
         puts "#{index + 1} - #{recipe.name}, #{recipe.description}"
