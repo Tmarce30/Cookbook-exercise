@@ -2,6 +2,8 @@ require_relative 'cookbook'
 require_relative 'recipe'
 require_relative 'view'
 
+require 'pry-byebug'
+
 class Controller
   def initialize(cookbook)
     @cookbook = cookbook
@@ -25,6 +27,14 @@ class Controller
     list
     recipe = @view.recipe_to_remove
     @cookbook.remove(recipe)
+    list
+  end
+
+  def mark_as_done
+    list
+    recipe_index = @view.ask_user_to_select_recipe
+    recipe = @cookbook.find(recipe_index)
+    recipe.mark_as_done!
     list
   end
 

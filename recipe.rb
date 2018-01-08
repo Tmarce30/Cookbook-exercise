@@ -1,5 +1,6 @@
 class Recipe
   attr_reader :name, :description, :cooking_time
+  attr_accessor :has_been_done
 
   def initialize(name, description, cooking_time, has_been_done = false)
     @name = name

@@ -4,7 +4,8 @@ class View
   def display(cookbook)
     unless cookbook.empty?
       cookbook.each_with_index do |recipe, index|
-        puts "#{index + 1} - #{recipe.name} | #{recipe.description} | #{recipe.cooking_time} min"
+        status = recipe.has_been_done? ? "[X]" : "[ ]"
+        puts "#{index + 1} - #{recipe.name} | #{recipe.description} | #{recipe.cooking_time} min #{status}"
       end
     else
       puts "Your cookbook is empty !"
@@ -29,6 +30,17 @@ class View
 
   def recipe_to_remove
     puts "\n Which recipe do you want to remove ?"
+    recipe_index
+  end
+
+  def ask_user_to_select_recipe
+    puts "\n Select a recipe"
+    recipe_index
+  end
+
+  private
+
+  def recipe_index
     index = gets.chomp.to_i - 1
     return index
   end
