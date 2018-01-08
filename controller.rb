@@ -13,6 +13,12 @@ class Controller
   end
 
   def create
+    name = @view.ask_user_for_name
+    description = @view.ask_user_for_description
+    cooking_time = @view.ask_user_for_time
+    recipe = Recipe.new(name, description, cooking_time)
+    @cookbook.add(recipe)
+    list
   end
 
   def destroy

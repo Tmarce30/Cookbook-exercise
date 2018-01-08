@@ -12,4 +12,19 @@ class View
     end
     puts "\n---------------------------"
   end
+
+  def ask_user_for_name
+    puts "\nWhat's the name of your recipe ?"
+    return gets.chomp
+  end
+
+  def ask_user_for_description
+    puts "\nDescribe your recipe"
+    return gets.chomp
+  end
+
+  def ask_user_for_time
+    puts "\nHow much time does it take to cook it ?"
+    return gets.chomp
+  end
 end
