@@ -22,6 +22,10 @@ class Controller
   end
 
   def destroy
+    list
+    recipe = @view.recipe_to_remove
+    @cookbook.remove(recipe)
+    list
   end
 
   private

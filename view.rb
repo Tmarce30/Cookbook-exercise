@@ -26,4 +26,10 @@ class View
     puts "\nHow much time does it take to cook it (min) ?"
     return gets.chomp.to_i
   end
+
+  def recipe_to_remove
+    puts "\n Which recipe do you want to remove ?"
+    index = gets.chomp.to_i - 1
+    return index
+  end
 end
