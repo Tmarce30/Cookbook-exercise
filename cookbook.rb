@@ -1,3 +1,6 @@
+require_relative 'recipe'
+require 'csv'
+
 class Cookbook
   def initialize(csv_file_path)
     @recipes = []

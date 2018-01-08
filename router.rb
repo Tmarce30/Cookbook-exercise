@@ -1,15 +1,19 @@
+require 'pry-byebug'
+
 class Router
   def initialize(controller)
     @controller = controller
-    @unning = true
+    @running = true
   end
 
   def run
-    puts 'WELCOME TO THE COOKBOOK !'
+    puts '* WELCOME TO THE COOKBOOK *'
     puts "---------------------------"
-    print_actions
-    action = gets.chomp
-    dispatch
+    while @running
+      print_actions
+      action = gets.chomp.to_i
+      dispatch(action)
+    end
   end
 
   private
@@ -26,5 +30,6 @@ class Router
     case action
     when 1 then @controller.list
     when 5 then @running = false
+    end
   end
 end

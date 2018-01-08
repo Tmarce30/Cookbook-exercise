@@ -1,7 +1,7 @@
 require_relative 'cookbook'
 require_relative 'view'
 
-class RecipesController
+class Controller
 
   def initialize(cookbook)
     @cookbook = cookbook
@@ -22,5 +22,6 @@ class RecipesController
 
   def display_cookbook
     cookbook = @cookbook
+    @view.display(cookbook)
   end
 end

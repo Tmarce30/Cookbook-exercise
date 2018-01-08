@@ -1,8 +1,14 @@
-class CookbookView
+# require 'pry-byebug'
 
+class View
   def display(cookbook)
-    cookbook.each_with_index do |recipe, index|
-      puts "#{index + 1} - #{recipe.name}, #{recipe.description}"
-    end
+    # binding.pry
+    # unless cookbook.empty?
+      cookbook.each_with_index do |recipe, index|
+        puts "#{index + 1} - #{recipe.name}, #{recipe.description}"
+      end
+    # else
+    #   puts "Your cookbook is empty !"
+    # end
   end
 end
