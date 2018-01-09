@@ -3,8 +3,22 @@ require 'nokogiri'
 file = 'strawberry.html'
 doc = Nokogiri::HTML(File.open(file), nil, 'utf-8')
 
-tagcloud_elements = doc.xpath("//div[@class='m_titre_resultat']/a")
+titles = doc.xpath("//div[@class='m_titre_resultat']/a")
+# descriptions = doc.xpath("//div[@class='m_detail_recette']")
 
-tagcloud_elements.each do |element|
-  puts element.text
+
+def get_recipe_title(titles)
+  titles.map do |element|
+    element.text
+  end
 end
+
+# def get_recipe_title(titles)
+#   titles.map do |element|
+#     element.text
+#   end
+# end
+
+
+
+
