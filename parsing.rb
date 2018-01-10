@@ -3,10 +3,10 @@ require 'open-uri'
 require_relative 'recipe'
 
 class SearchRecipe
-  def search(ingredient)
+  def search(recipe_name)
     recipes = []
 
-    url = "http://www.letscookfrench.com/recipes/find-recipe.aspx?type=all&aqt=#{ingredient}"
+    url = "http://www.letscookfrench.com/recipes/find-recipe.aspx?type=all&aqt=#{recipe_name}"
     html = Nokogiri::HTML(open(url), nil, 'utf-8')
 
     html.search(".recette_classique").each do |doc|

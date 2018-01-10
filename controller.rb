@@ -1,6 +1,7 @@
 require_relative 'cookbook'
 require_relative 'recipe'
 require_relative 'view'
+require_relative 'parsing'
 
 require 'pry-byebug'
 
@@ -12,6 +13,17 @@ class Controller
 
   def list
     display_cookbook
+  end
+
+  def import_recipe
+    searched_recipe = @view.ask_for_recipe
+    scrap = SearchRecipe.new
+    recipes = scrap.search(searched_recipe)
+    @view.display_parsed_recipes(recipes)
+    index = @view.ask_user_to_select_recipe
+    recipe = recipes[index]
+    @cookbook.add(recipe)
+    list
   end
 
   def create
